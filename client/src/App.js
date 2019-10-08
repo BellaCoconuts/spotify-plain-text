@@ -1,9 +1,11 @@
 import React, { useEffect, useRef } from 'react'
+import { BrowserRouter } from 'react-router-dom'
+import { Routes } from './routes/rotues'
 import './App.css'
 
 const url = 'https://api.spotify.com/v1'
 
-const getData = async endpoint => await (await fetch(url + endpoint)).json()
+const getData = async (endpoint) => await (await fetch(url + endpoint)).json()
 
 function App() {
   const followedArtists = useRef([])
@@ -13,12 +15,10 @@ function App() {
   }, [])
 
   return (
-    <div className="App">
-      <ul>
-        {followedArtists.current.map(d => (
-          <li key={d.id}>{d}</li>
-        ))}
-      </ul>
+    <div className='App'>
+      <BrowserRouter>
+        <Routes />
+      </BrowserRouter>
     </div>
   )
 }
