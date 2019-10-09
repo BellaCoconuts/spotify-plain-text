@@ -1,7 +1,7 @@
 {
-  "name": "server",
+  "name": "spotify-plain-text-server",
   "version": "1.0.0",
-  "description": "",
+  "description": "backend to spotify plain text app",
   "main": "index.js",
   "dependencies": {
     "accepts": "^1.3.7",
@@ -56,7 +56,7 @@
   },
   "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js"
   },
   "keywords": [],
   "author": "",
