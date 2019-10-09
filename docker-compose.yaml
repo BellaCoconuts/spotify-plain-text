@@ -1,0 +1,27 @@
+version: '3.7'
+
+services:
+  web:
+    container_name: spotify_plaintext_web
+    build:
+      context: .
+      dockerfile: ./client/Dockerfile-devlopment
+    volumes:
+      - '.:app'
+      - '/app/node_modules'
+    ports:
+      - '3000:3000'
+    environment:
+      - NODE_ENV=development
+      - CHOKIDAR_USEPOLLING=true
+    depends_on:
+      - backend
+  backend:
+    container_name: spotify_plaintext_backend
+    build:
+      context: .
+      dockerfile: ./server/Dockerfile
+    ports:
+      - '3002:3002'
+    environment:
+      - NODE_ENV=development

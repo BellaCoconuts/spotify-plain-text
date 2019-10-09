@@ -5,6 +5,7 @@ export const Home = () => {
   const match = useRouteMatch('/callback')
   const params = new URLSearchParams(useLocation().search)
   console.log(match)
+
   // params.forEach((value, key) => console.log(key, value))
   // console.log()
 
