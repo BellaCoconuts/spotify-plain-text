@@ -1,0 +1,21 @@
+version: '3.7'
+
+services:
+  web:
+    container_name: spotify_plaintext_web
+    build:
+      context: ./client
+      dockerfile: ./client/Dockerfile-deployment
+    ports:
+      - '80:80'
+    depends_on:
+      - backend
+  backend:
+    container_name: spotify_plaintext_backend
+    build:
+      context: ./server
+      dockerfile: ./server/Dockerfile-deployment
+    ports:
+      - '3001:3001'
+    environment:
+      - NODE_END=production
