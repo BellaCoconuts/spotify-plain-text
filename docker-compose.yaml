@@ -4,11 +4,11 @@ services:
   web:
     container_name: spotify_plaintext_web
     build:
-      context: .
-      dockerfile: ./client/Dockerfile-devlopment
+      context: ./client/
+      dockerfile: Dockerfile
     volumes:
-      - '.:app'
-      - '/app/node_modules'
+      - './client/:/app'
+      - '/client/app/node_modules'
     ports:
       - '3000:3000'
     environment:
@@ -19,8 +19,8 @@ services:
   backend:
     container_name: spotify_plaintext_backend
     build:
-      context: .
-      dockerfile: ./server/Dockerfile
+      context: ./server/
+      dockerfile: Dockerfile
     ports:
       - '3002:3002'
     environment:
